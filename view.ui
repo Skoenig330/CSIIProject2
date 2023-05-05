@@ -194,6 +194,12 @@
       <height>751</height>
      </rect>
     </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
     <property name="palette">
      <palette>
       <active>
@@ -1043,7 +1049,7 @@ font: 700 13pt &quot;Helvetica Neue&quot;;</string>
         <string>Name*</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_UnitCost">
+      <widget class="QLabel" name="label_QuantityEntryCustom">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -1086,7 +1092,7 @@ font: 13pt &quot;Helvetica Neue&quot;;</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QLabel" name="label_UnitPrice">
+      <widget class="QLabel" name="label_UnitCostEntry">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1121,7 +1127,7 @@ padding-left:10px;
 padding-right:10px;</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_Quantity_2">
+      <widget class="QLineEdit" name="lineEdit_QuantityCustom">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -1145,7 +1151,7 @@ padding-right:10px;</string>
         <string>1</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_UnitPrice_2">
+      <widget class="QLineEdit" name="lineEdit_DoctorCost">
        <property name="geometry">
         <rect>
          <x>120</x>
@@ -1163,7 +1169,7 @@ padding-left:10px;
 padding-right:10px;</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_UnitPrice_2">
+      <widget class="QLabel" name="label_DoctorCostEntry">
        <property name="geometry">
         <rect>
          <x>120</x>
@@ -1180,7 +1186,7 @@ font: 700 13pt &quot;Helvetica Neue&quot;;</string>
         <string>Doctor Cost</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_UnitPrice_3">
+      <widget class="QLabel" name="label_MinimumEntry">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -1197,7 +1203,7 @@ font: 700 13pt &quot;Helvetica Neue&quot;;</string>
         <string>Minimum</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_UnitPrice_3">
+      <widget class="QLineEdit" name="lineEdit_Minimum">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -1915,7 +1921,7 @@ font: 700 20pt &quot;Helvetica Neue&quot;;</string>
         <string>Options</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_VisionSource_2">
+      <widget class="QCheckBox" name="checkBox_MiscCosts">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -2135,7 +2141,7 @@ color:white;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QFrame" name="frame_Options_2">
+     <widget class="QFrame" name="frame_AddBox">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -2154,7 +2160,7 @@ border-radius:0px;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="pushButton_ClearItems_2">
+      <widget class="QPushButton" name="pushButton_AddContents">
        <property name="geometry">
         <rect>
          <x>360</x>
@@ -2376,7 +2382,7 @@ color:white;</string>
         <string>Add Box Contents</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_Options_2">
+      <widget class="QLabel" name="label_AddBox">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -2393,7 +2399,7 @@ font: 700 20pt &quot;Helvetica Neue&quot;;</string>
         <string>Add Already Existing Box Items</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_Items_2">
+      <widget class="QComboBox" name="comboBox_Boxes">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -2453,7 +2459,7 @@ font: 700 17pt &quot;Helvetica Neue&quot;;</string>
        <string>Item</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_Price">
+     <widget class="QLabel" name="label_Min">
       <property name="geometry">
        <rect>
         <x>490</x>
@@ -2486,7 +2492,7 @@ border-top:20px solid white;
 border-top-left-radius:0px;
 border-top-right-radius:0px;</string>
       </property>
-      <widget class="QLabel" name="label_Item_2">
+      <widget class="QLabel" name="label_PeeqCost">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -2504,7 +2510,7 @@ font: 700 17pt &quot;Helvetica Neue&quot;;</string>
         <string>Peeq Cost</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_Item_3">
+      <widget class="QLabel" name="label_DoctorCost">
        <property name="geometry">
         <rect>
          <x>210</x>
@@ -2522,7 +2528,7 @@ font: 700 17pt &quot;Helvetica Neue&quot;;</string>
         <string>Doctor Cost</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_Item_4">
+      <widget class="QLabel" name="label_Minimum">
        <property name="geometry">
         <rect>
          <x>450</x>
@@ -2540,7 +2546,7 @@ font: 700 17pt &quot;Helvetica Neue&quot;;</string>
         <string>Minimum</string>
        </property>
       </widget>
-      <widget class="QFrame" name="frame">
+      <widget class="QFrame" name="frame_TotalDescriptions">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -2588,7 +2594,7 @@ border:0px;</string>
        </widget>
       </widget>
      </widget>
-     <widget class="QLabel" name="label_Item_5">
+     <widget class="QLabel" name="label_Qty">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -2605,7 +2611,7 @@ font: 700 17pt &quot;Helvetica Neue&quot;;</string>
        <string>Qty</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_Item_6">
+     <widget class="QLabel" name="label_PCost">
       <property name="geometry">
        <rect>
         <x>310</x>
@@ -2622,7 +2628,7 @@ font: 700 17pt &quot;Helvetica Neue&quot;;</string>
        <string>PCost</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_Item_7">
+     <widget class="QLabel" name="label_DCost">
       <property name="geometry">
        <rect>
         <x>400</x>
@@ -2639,24 +2645,18 @@ font: 700 17pt &quot;Helvetica Neue&quot;;</string>
        <string>DCost</string>
       </property>
      </widget>
-     <widget class="QFrame" name="frame_2">
+     <widget class="QWidget" name="widget_ItemList" native="true">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>60</y>
+        <x>-1</x>
+        <y>50</y>
         <width>561</width>
-        <height>421</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:0px;
-background-color:rgba(255, 255, 255, 0)</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+background-color:rgba(255, 255, 255, 0);</string>
       </property>
      </widget>
     </widget>

@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'view.ui'
+# Form implementation generated from reading ui file 'v2.ui'
 #
 # Created by: PyQt6 UI code generator 6.5.0
 #
@@ -74,6 +74,7 @@ class Ui_mainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.widget_Background = QtWidgets.QWidget(parent=self.centralwidget)
         self.widget_Background.setGeometry(QtCore.QRect(0, 0, 1211, 751))
+        self.widget_Background.setMaximumSize(QtCore.QSize(16777215, 16777215))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
@@ -359,11 +360,11 @@ class Ui_mainWindow(object):
         self.label_Name.setStyleSheet("color:rgb(255, 255, 255);\n"
 "font: 700 13pt \"Helvetica Neue\";")
         self.label_Name.setObjectName("label_Name")
-        self.label_UnitCost = QtWidgets.QLabel(parent=self.frame_AddCustom)
-        self.label_UnitCost.setGeometry(QtCore.QRect(190, 110, 58, 13))
-        self.label_UnitCost.setStyleSheet("color:rgb(255, 255, 255);\n"
+        self.label_QuantityEntryCustom = QtWidgets.QLabel(parent=self.frame_AddCustom)
+        self.label_QuantityEntryCustom.setGeometry(QtCore.QRect(190, 110, 58, 13))
+        self.label_QuantityEntryCustom.setStyleSheet("color:rgb(255, 255, 255);\n"
 "font: 700 13pt \"Helvetica Neue\";")
-        self.label_UnitCost.setObjectName("label_UnitCost")
+        self.label_QuantityEntryCustom.setObjectName("label_QuantityEntryCustom")
         self.label_AddCustomDescription = QtWidgets.QLabel(parent=self.frame_AddCustom)
         self.label_AddCustomDescription.setGeometry(QtCore.QRect(0, 30, 521, 61))
         self.label_AddCustomDescription.setStyleSheet("color:rgb(255, 255, 255);\n"
@@ -372,11 +373,11 @@ class Ui_mainWindow(object):
         self.label_AddCustomDescription.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft)
         self.label_AddCustomDescription.setWordWrap(True)
         self.label_AddCustomDescription.setObjectName("label_AddCustomDescription")
-        self.label_UnitPrice = QtWidgets.QLabel(parent=self.frame_AddCustom)
-        self.label_UnitPrice.setGeometry(QtCore.QRect(0, 170, 64, 16))
-        self.label_UnitPrice.setStyleSheet("color:rgb(255, 255, 255);\n"
+        self.label_UnitCostEntry = QtWidgets.QLabel(parent=self.frame_AddCustom)
+        self.label_UnitCostEntry.setGeometry(QtCore.QRect(0, 170, 64, 16))
+        self.label_UnitCostEntry.setStyleSheet("color:rgb(255, 255, 255);\n"
 "font: 700 13pt \"Helvetica Neue\";")
-        self.label_UnitPrice.setObjectName("label_UnitPrice")
+        self.label_UnitCostEntry.setObjectName("label_UnitCostEntry")
         self.lineEdit_UnitPrice = QtWidgets.QLineEdit(parent=self.frame_AddCustom)
         self.lineEdit_UnitPrice.setGeometry(QtCore.QRect(0, 190, 91, 21))
         self.lineEdit_UnitPrice.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -386,44 +387,44 @@ class Ui_mainWindow(object):
 "padding-left:10px;\n"
 "padding-right:10px;")
         self.lineEdit_UnitPrice.setObjectName("lineEdit_UnitPrice")
-        self.lineEdit_Quantity_2 = QtWidgets.QLineEdit(parent=self.frame_AddCustom)
-        self.lineEdit_Quantity_2.setGeometry(QtCore.QRect(190, 130, 71, 21))
-        self.lineEdit_Quantity_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.lineEdit_QuantityCustom = QtWidgets.QLineEdit(parent=self.frame_AddCustom)
+        self.lineEdit_QuantityCustom.setGeometry(QtCore.QRect(190, 130, 71, 21))
+        self.lineEdit_QuantityCustom.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color:rgb(0, 122, 255);\n"
 "font: 13pt \"Helvetica Neue\";\n"
 "border-radius:10px;\n"
 "padding-left:10px;\n"
 "padding-right:10px;")
-        self.lineEdit_Quantity_2.setInputMethodHints(QtCore.Qt.InputMethodHint.ImhDigitsOnly|QtCore.Qt.InputMethodHint.ImhFormattedNumbersOnly)
-        self.lineEdit_Quantity_2.setObjectName("lineEdit_Quantity_2")
-        self.lineEdit_UnitPrice_2 = QtWidgets.QLineEdit(parent=self.frame_AddCustom)
-        self.lineEdit_UnitPrice_2.setGeometry(QtCore.QRect(120, 190, 91, 21))
-        self.lineEdit_UnitPrice_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.lineEdit_QuantityCustom.setInputMethodHints(QtCore.Qt.InputMethodHint.ImhDigitsOnly|QtCore.Qt.InputMethodHint.ImhFormattedNumbersOnly)
+        self.lineEdit_QuantityCustom.setObjectName("lineEdit_QuantityCustom")
+        self.lineEdit_DoctorCost = QtWidgets.QLineEdit(parent=self.frame_AddCustom)
+        self.lineEdit_DoctorCost.setGeometry(QtCore.QRect(120, 190, 91, 21))
+        self.lineEdit_DoctorCost.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color:rgb(0, 122, 255);\n"
 "font: 13pt \"Helvetica Neue\";\n"
 "border-radius:10px;\n"
 "padding-left:10px;\n"
 "padding-right:10px;")
-        self.lineEdit_UnitPrice_2.setObjectName("lineEdit_UnitPrice_2")
-        self.label_UnitPrice_2 = QtWidgets.QLabel(parent=self.frame_AddCustom)
-        self.label_UnitPrice_2.setGeometry(QtCore.QRect(120, 170, 76, 16))
-        self.label_UnitPrice_2.setStyleSheet("color:rgb(255, 255, 255);\n"
+        self.lineEdit_DoctorCost.setObjectName("lineEdit_DoctorCost")
+        self.label_DoctorCostEntry = QtWidgets.QLabel(parent=self.frame_AddCustom)
+        self.label_DoctorCostEntry.setGeometry(QtCore.QRect(120, 170, 76, 16))
+        self.label_DoctorCostEntry.setStyleSheet("color:rgb(255, 255, 255);\n"
 "font: 700 13pt \"Helvetica Neue\";")
-        self.label_UnitPrice_2.setObjectName("label_UnitPrice_2")
-        self.label_UnitPrice_3 = QtWidgets.QLabel(parent=self.frame_AddCustom)
-        self.label_UnitPrice_3.setGeometry(QtCore.QRect(240, 170, 58, 16))
-        self.label_UnitPrice_3.setStyleSheet("color:rgb(255, 255, 255);\n"
+        self.label_DoctorCostEntry.setObjectName("label_DoctorCostEntry")
+        self.label_MinimumEntry = QtWidgets.QLabel(parent=self.frame_AddCustom)
+        self.label_MinimumEntry.setGeometry(QtCore.QRect(240, 170, 58, 16))
+        self.label_MinimumEntry.setStyleSheet("color:rgb(255, 255, 255);\n"
 "font: 700 13pt \"Helvetica Neue\";")
-        self.label_UnitPrice_3.setObjectName("label_UnitPrice_3")
-        self.lineEdit_UnitPrice_3 = QtWidgets.QLineEdit(parent=self.frame_AddCustom)
-        self.lineEdit_UnitPrice_3.setGeometry(QtCore.QRect(240, 190, 91, 21))
-        self.lineEdit_UnitPrice_3.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.label_MinimumEntry.setObjectName("label_MinimumEntry")
+        self.lineEdit_Minimum = QtWidgets.QLineEdit(parent=self.frame_AddCustom)
+        self.lineEdit_Minimum.setGeometry(QtCore.QRect(240, 190, 91, 21))
+        self.lineEdit_Minimum.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color:rgb(0, 122, 255);\n"
 "font: 13pt \"Helvetica Neue\";\n"
 "border-radius:10px;\n"
 "padding-left:10px;\n"
 "padding-right:10px;")
-        self.lineEdit_UnitPrice_3.setObjectName("lineEdit_UnitPrice_3")
+        self.lineEdit_Minimum.setObjectName("lineEdit_Minimum")
         self.frame_Options = QtWidgets.QFrame(parent=self.widget_CreateBox)
         self.frame_Options.setGeometry(QtCore.QRect(20, 500, 521, 81))
         self.frame_Options.setStyleSheet("font: 13pt \"Helvetica Neue\";\n"
@@ -655,8 +656,8 @@ class Ui_mainWindow(object):
         self.label_Options.setStyleSheet("color:white;\n"
 "font: 700 20pt \"Helvetica Neue\";")
         self.label_Options.setObjectName("label_Options")
-        self.checkBox_VisionSource_2 = QtWidgets.QCheckBox(parent=self.frame_Options)
-        self.checkBox_VisionSource_2.setGeometry(QtCore.QRect(0, 40, 210, 18))
+        self.checkBox_MiscCosts = QtWidgets.QCheckBox(parent=self.frame_Options)
+        self.checkBox_MiscCosts.setGeometry(QtCore.QRect(0, 40, 210, 18))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
@@ -721,20 +722,20 @@ class Ui_mainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.PlaceholderText, brush)
-        self.checkBox_VisionSource_2.setPalette(palette)
-        self.checkBox_VisionSource_2.setStyleSheet("font: 700 13pt \"Helvetica Neue\";\n"
+        self.checkBox_MiscCosts.setPalette(palette)
+        self.checkBox_MiscCosts.setStyleSheet("font: 700 13pt \"Helvetica Neue\";\n"
 "color:white;")
-        self.checkBox_VisionSource_2.setChecked(True)
-        self.checkBox_VisionSource_2.setObjectName("checkBox_VisionSource_2")
-        self.frame_Options_2 = QtWidgets.QFrame(parent=self.widget_CreateBox)
-        self.frame_Options_2.setGeometry(QtCore.QRect(20, 160, 521, 71))
-        self.frame_Options_2.setStyleSheet("font: 13pt \"Helvetica Neue\";\n"
+        self.checkBox_MiscCosts.setChecked(True)
+        self.checkBox_MiscCosts.setObjectName("checkBox_MiscCosts")
+        self.frame_AddBox = QtWidgets.QFrame(parent=self.widget_CreateBox)
+        self.frame_AddBox.setGeometry(QtCore.QRect(20, 160, 521, 71))
+        self.frame_AddBox.setStyleSheet("font: 13pt \"Helvetica Neue\";\n"
 "border-radius:0px;")
-        self.frame_Options_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.frame_Options_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.frame_Options_2.setObjectName("frame_Options_2")
-        self.pushButton_ClearItems_2 = QtWidgets.QPushButton(parent=self.frame_Options_2)
-        self.pushButton_ClearItems_2.setGeometry(QtCore.QRect(360, 40, 141, 31))
+        self.frame_AddBox.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_AddBox.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_AddBox.setObjectName("frame_AddBox")
+        self.pushButton_AddContents = QtWidgets.QPushButton(parent=self.frame_AddBox)
+        self.pushButton_AddContents.setGeometry(QtCore.QRect(360, 40, 141, 31))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
@@ -799,29 +800,29 @@ class Ui_mainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
         palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.PlaceholderText, brush)
-        self.pushButton_ClearItems_2.setPalette(palette)
-        self.pushButton_ClearItems_2.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.pushButton_ClearItems_2.setStyleSheet("background-color: rgb(0, 122, 255);\n"
+        self.pushButton_AddContents.setPalette(palette)
+        self.pushButton_AddContents.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.pushButton_AddContents.setStyleSheet("background-color: rgb(0, 122, 255);\n"
 "border-radius:10px;\n"
 "border:2px solid white;\n"
 "font: 700 13pt \"Helvetica Neue\";\n"
 "color:white;")
-        self.pushButton_ClearItems_2.setObjectName("pushButton_ClearItems_2")
-        self.label_Options_2 = QtWidgets.QLabel(parent=self.frame_Options_2)
-        self.label_Options_2.setGeometry(QtCore.QRect(0, 0, 299, 24))
-        self.label_Options_2.setStyleSheet("color:white;\n"
+        self.pushButton_AddContents.setObjectName("pushButton_AddContents")
+        self.label_AddBox = QtWidgets.QLabel(parent=self.frame_AddBox)
+        self.label_AddBox.setGeometry(QtCore.QRect(0, 0, 299, 24))
+        self.label_AddBox.setStyleSheet("color:white;\n"
 "font: 700 20pt \"Helvetica Neue\";")
-        self.label_Options_2.setObjectName("label_Options_2")
-        self.comboBox_Items_2 = QtWidgets.QComboBox(parent=self.frame_Options_2)
-        self.comboBox_Items_2.setGeometry(QtCore.QRect(0, 40, 231, 31))
-        self.comboBox_Items_2.setStyleSheet("font: 13pt \"Helvetica Neue\";\n"
+        self.label_AddBox.setObjectName("label_AddBox")
+        self.comboBox_Boxes = QtWidgets.QComboBox(parent=self.frame_AddBox)
+        self.comboBox_Boxes.setGeometry(QtCore.QRect(0, 40, 231, 31))
+        self.comboBox_Boxes.setStyleSheet("font: 13pt \"Helvetica Neue\";\n"
 "color:rgb(0, 122, 255);\n"
 "background-color:white;\n"
 "border-radius:10px;\n"
 "padding-left:10px;\n"
 "padding-right:10px;")
-        self.comboBox_Items_2.setEditable(True)
-        self.comboBox_Items_2.setObjectName("comboBox_Items_2")
+        self.comboBox_Boxes.setEditable(True)
+        self.comboBox_Boxes.setObjectName("comboBox_Boxes")
         self.widget_BoxTotals = QtWidgets.QWidget(parent=self.widget_Background)
         self.widget_BoxTotals.setGeometry(QtCore.QRect(610, 30, 561, 701))
         self.widget_BoxTotals.setStyleSheet("background-color:rgb(0, 122, 255);\n"
@@ -833,11 +834,11 @@ class Ui_mainWindow(object):
         self.label_Item.setStyleSheet("color:white;\n"
 "font: 700 17pt \"Helvetica Neue\";")
         self.label_Item.setObjectName("label_Item")
-        self.label_Price = QtWidgets.QLabel(parent=self.widget_BoxTotals)
-        self.label_Price.setGeometry(QtCore.QRect(490, 20, 30, 21))
-        self.label_Price.setStyleSheet("color:white;\n"
+        self.label_Min = QtWidgets.QLabel(parent=self.widget_BoxTotals)
+        self.label_Min.setGeometry(QtCore.QRect(490, 20, 30, 21))
+        self.label_Min.setStyleSheet("color:white;\n"
 "font: 700 17pt \"Helvetica Neue\";")
-        self.label_Price.setObjectName("label_Price")
+        self.label_Min.setObjectName("label_Min")
         self.widget = QtWidgets.QWidget(parent=self.widget_BoxTotals)
         self.widget.setGeometry(QtCore.QRect(0, 480, 561, 221))
         self.widget.setStyleSheet("\n"
@@ -846,32 +847,32 @@ class Ui_mainWindow(object):
 "border-top-left-radius:0px;\n"
 "border-top-right-radius:0px;")
         self.widget.setObjectName("widget")
-        self.label_Item_2 = QtWidgets.QLabel(parent=self.widget)
-        self.label_Item_2.setGeometry(QtCore.QRect(20, 40, 84, 17))
-        self.label_Item_2.setStyleSheet("border:0px;\n"
+        self.label_PeeqCost = QtWidgets.QLabel(parent=self.widget)
+        self.label_PeeqCost.setGeometry(QtCore.QRect(20, 40, 84, 17))
+        self.label_PeeqCost.setStyleSheet("border:0px;\n"
 "color:white;\n"
 "font: 700 17pt \"Helvetica Neue\";")
-        self.label_Item_2.setObjectName("label_Item_2")
-        self.label_Item_3 = QtWidgets.QLabel(parent=self.widget)
-        self.label_Item_3.setGeometry(QtCore.QRect(210, 40, 98, 17))
-        self.label_Item_3.setStyleSheet("border:0px;\n"
+        self.label_PeeqCost.setObjectName("label_PeeqCost")
+        self.label_DoctorCost = QtWidgets.QLabel(parent=self.widget)
+        self.label_DoctorCost.setGeometry(QtCore.QRect(210, 40, 98, 17))
+        self.label_DoctorCost.setStyleSheet("border:0px;\n"
 "color:white;\n"
 "font: 700 17pt \"Helvetica Neue\";")
-        self.label_Item_3.setObjectName("label_Item_3")
-        self.label_Item_4 = QtWidgets.QLabel(parent=self.widget)
-        self.label_Item_4.setGeometry(QtCore.QRect(450, 40, 76, 21))
-        self.label_Item_4.setStyleSheet("border:0px;\n"
+        self.label_DoctorCost.setObjectName("label_DoctorCost")
+        self.label_Minimum = QtWidgets.QLabel(parent=self.widget)
+        self.label_Minimum.setGeometry(QtCore.QRect(450, 40, 76, 21))
+        self.label_Minimum.setStyleSheet("border:0px;\n"
 "color:white;\n"
 "font: 700 17pt \"Helvetica Neue\";")
-        self.label_Item_4.setObjectName("label_Item_4")
-        self.frame = QtWidgets.QFrame(parent=self.widget)
-        self.frame.setGeometry(QtCore.QRect(0, 130, 561, 91))
-        self.frame.setStyleSheet("border:0px;\n"
+        self.label_Minimum.setObjectName("label_Minimum")
+        self.frame_TotalDescriptions = QtWidgets.QFrame(parent=self.widget)
+        self.frame_TotalDescriptions.setGeometry(QtCore.QRect(0, 130, 561, 91))
+        self.frame_TotalDescriptions.setStyleSheet("border:0px;\n"
 "")
-        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.frame.setObjectName("frame")
-        self.label_AddCustomDescription_2 = QtWidgets.QLabel(parent=self.frame)
+        self.frame_TotalDescriptions.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_TotalDescriptions.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_TotalDescriptions.setObjectName("frame_TotalDescriptions")
+        self.label_AddCustomDescription_2 = QtWidgets.QLabel(parent=self.frame_TotalDescriptions)
         self.label_AddCustomDescription_2.setGeometry(QtCore.QRect(20, 10, 521, 61))
         self.label_AddCustomDescription_2.setStyleSheet("color:rgb(255, 255, 255);\n"
 "font: 13pt \"Helvetica Neue\";\n"
@@ -880,28 +881,26 @@ class Ui_mainWindow(object):
         self.label_AddCustomDescription_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft)
         self.label_AddCustomDescription_2.setWordWrap(True)
         self.label_AddCustomDescription_2.setObjectName("label_AddCustomDescription_2")
-        self.label_Item_5 = QtWidgets.QLabel(parent=self.widget_BoxTotals)
-        self.label_Item_5.setGeometry(QtCore.QRect(240, 20, 29, 21))
-        self.label_Item_5.setStyleSheet("color:white;\n"
+        self.label_Qty = QtWidgets.QLabel(parent=self.widget_BoxTotals)
+        self.label_Qty.setGeometry(QtCore.QRect(240, 20, 29, 21))
+        self.label_Qty.setStyleSheet("color:white;\n"
 "font: 700 17pt \"Helvetica Neue\";")
-        self.label_Item_5.setObjectName("label_Item_5")
-        self.label_Item_6 = QtWidgets.QLabel(parent=self.widget_BoxTotals)
-        self.label_Item_6.setGeometry(QtCore.QRect(310, 20, 50, 21))
-        self.label_Item_6.setStyleSheet("color:white;\n"
+        self.label_Qty.setObjectName("label_Qty")
+        self.label_PCost = QtWidgets.QLabel(parent=self.widget_BoxTotals)
+        self.label_PCost.setGeometry(QtCore.QRect(310, 20, 50, 21))
+        self.label_PCost.setStyleSheet("color:white;\n"
 "font: 700 17pt \"Helvetica Neue\";")
-        self.label_Item_6.setObjectName("label_Item_6")
-        self.label_Item_7 = QtWidgets.QLabel(parent=self.widget_BoxTotals)
-        self.label_Item_7.setGeometry(QtCore.QRect(400, 20, 51, 21))
-        self.label_Item_7.setStyleSheet("color:white;\n"
+        self.label_PCost.setObjectName("label_PCost")
+        self.label_DCost = QtWidgets.QLabel(parent=self.widget_BoxTotals)
+        self.label_DCost.setGeometry(QtCore.QRect(400, 20, 51, 21))
+        self.label_DCost.setStyleSheet("color:white;\n"
 "font: 700 17pt \"Helvetica Neue\";")
-        self.label_Item_7.setObjectName("label_Item_7")
-        self.frame_2 = QtWidgets.QFrame(parent=self.widget_BoxTotals)
-        self.frame_2.setGeometry(QtCore.QRect(0, 60, 561, 421))
-        self.frame_2.setStyleSheet("border-radius:0px;\n"
-"background-color:rgba(255, 255, 255, 0)")
-        self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.frame_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.frame_2.setObjectName("frame_2")
+        self.label_DCost.setObjectName("label_DCost")
+        self.widget_ItemList = QtWidgets.QWidget(parent=self.widget_BoxTotals)
+        self.widget_ItemList.setGeometry(QtCore.QRect(-1, 50, 561, 431))
+        self.widget_ItemList.setStyleSheet("border-radius:0px;\n"
+"background-color:rgba(255, 255, 255, 0);")
+        self.widget_ItemList.setObjectName("widget_ItemList")
         self.label_PeeqPro = QtWidgets.QLabel(parent=self.widget_Background)
         self.label_PeeqPro.setGeometry(QtCore.QRect(30, 30, 203, 48))
         self.label_PeeqPro.setStyleSheet("font: 700 48pt \"Helvetica\";\n"
@@ -940,30 +939,30 @@ class Ui_mainWindow(object):
         self.pushButton_AddCustom.setText(_translate("mainWindow", "Add Custom Item"))
         self.label_AddCustom.setText(_translate("mainWindow", "Add Custom Item to Box"))
         self.label_Name.setText(_translate("mainWindow", "Name*"))
-        self.label_UnitCost.setText(_translate("mainWindow", "Quantity"))
+        self.label_QuantityEntryCustom.setText(_translate("mainWindow", "Quantity"))
         self.label_AddCustomDescription.setText(_translate("mainWindow", "<html><head/><body><p>Adding a custom item to a box does not add it to Peeq\'s catalogue, only to to the current box\'s price calculation on the right. To add an item permanently, contact Sophie? Name and Unit Cost are the only required fields, doctor cost and minimum will be calculated if left empty. </p></body></html>"))
-        self.label_UnitPrice.setText(_translate("mainWindow", "Unit Cost*"))
-        self.lineEdit_Quantity_2.setText(_translate("mainWindow", "1"))
-        self.label_UnitPrice_2.setText(_translate("mainWindow", "Doctor Cost"))
-        self.label_UnitPrice_3.setText(_translate("mainWindow", "Minimum"))
+        self.label_UnitCostEntry.setText(_translate("mainWindow", "Unit Cost*"))
+        self.lineEdit_QuantityCustom.setText(_translate("mainWindow", "1"))
+        self.label_DoctorCostEntry.setText(_translate("mainWindow", "Doctor Cost"))
+        self.label_MinimumEntry.setText(_translate("mainWindow", "Minimum"))
         self.checkBox_VisionSource.setText(_translate("mainWindow", "Vision Source member"))
         self.pushButton_ClearItems.setText(_translate("mainWindow", "Clear All Items"))
         self.pushButton_EditItems.setText(_translate("mainWindow", "Edit Item Quantity"))
         self.label_Options.setText(_translate("mainWindow", "Options"))
-        self.checkBox_VisionSource_2.setText(_translate("mainWindow", "Add misc. costs to total prices"))
-        self.pushButton_ClearItems_2.setText(_translate("mainWindow", "Add Box Contents"))
-        self.label_Options_2.setText(_translate("mainWindow", "Add Already Existing Box Items"))
-        self.comboBox_Items_2.setCurrentText(_translate("mainWindow", "Select or Type Item"))
-        self.comboBox_Items_2.setPlaceholderText(_translate("mainWindow", "Select Item"))
+        self.checkBox_MiscCosts.setText(_translate("mainWindow", "Add misc. costs to total prices"))
+        self.pushButton_AddContents.setText(_translate("mainWindow", "Add Box Contents"))
+        self.label_AddBox.setText(_translate("mainWindow", "Add Already Existing Box Items"))
+        self.comboBox_Boxes.setCurrentText(_translate("mainWindow", "Select or Type Item"))
+        self.comboBox_Boxes.setPlaceholderText(_translate("mainWindow", "Select Item"))
         self.label_Item.setText(_translate("mainWindow", "Item"))
-        self.label_Price.setText(_translate("mainWindow", "Min"))
-        self.label_Item_2.setText(_translate("mainWindow", "Peeq Cost"))
-        self.label_Item_3.setText(_translate("mainWindow", "Doctor Cost"))
-        self.label_Item_4.setText(_translate("mainWindow", "Minimum"))
+        self.label_Min.setText(_translate("mainWindow", "Min"))
+        self.label_PeeqCost.setText(_translate("mainWindow", "Peeq Cost"))
+        self.label_DoctorCost.setText(_translate("mainWindow", "Doctor Cost"))
+        self.label_Minimum.setText(_translate("mainWindow", "Minimum"))
         self.label_AddCustomDescription_2.setText(_translate("mainWindow", "<html><head/><body><p>Miscelaneous costs are added automatically to the total prices displayed above. They include the estimated box cost ($2.75), sticker cost ($0.25), etc. To remove these costs from the total prices, deselect the &quot;Add misc. costs to total prices&quot; check box in Options.</p></body></html>"))
-        self.label_Item_5.setText(_translate("mainWindow", "Qty"))
-        self.label_Item_6.setText(_translate("mainWindow", "PCost"))
-        self.label_Item_7.setText(_translate("mainWindow", "DCost"))
+        self.label_Qty.setText(_translate("mainWindow", "Qty"))
+        self.label_PCost.setText(_translate("mainWindow", "PCost"))
+        self.label_DCost.setText(_translate("mainWindow", "DCost"))
         self.label_PeeqPro.setText(_translate("mainWindow", "peeq pro"))
 
 
