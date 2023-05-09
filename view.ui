@@ -2648,7 +2648,7 @@ font: 700 17pt &quot;Helvetica Neue&quot;;</string>
      <widget class="QWidget" name="widget_ItemList" native="true">
       <property name="geometry">
        <rect>
-        <x>-1</x>
+        <x>0</x>
         <y>50</y>
         <width>561</width>
         <height>431</height>
@@ -2685,7 +2685,7 @@ color:rgb(0, 122, 255)</string>
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>24</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

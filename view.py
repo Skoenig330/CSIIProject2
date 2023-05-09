@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'v2.ui'
+# Form implementation generated from reading ui file 'view.ui'
 #
 # Created by: PyQt6 UI code generator 6.5.0
 #
@@ -11,6 +11,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
+        from controller import displayNames, boxNames
         mainWindow.setObjectName("mainWindow")
         mainWindow.setEnabled(True)
         mainWindow.resize(1200, 800)
@@ -151,13 +152,8 @@ class Ui_mainWindow(object):
 "padding-right:10px;")
         self.comboBox_Items.setEditable(True)
         self.comboBox_Items.setObjectName("comboBox_Items")
-        self.comboBox_Items.addItem("")
-        self.comboBox_Items.addItem("")
-        self.comboBox_Items.addItem("")
-        self.comboBox_Items.addItem("")
-        self.comboBox_Items.addItem("")
-        self.comboBox_Items.addItem("")
-        self.comboBox_Items.addItem("")
+        for name in displayNames:
+            self.comboBox_Items.addItem("")
         self.pushButton_AddItem = QtWidgets.QPushButton(parent=self.frame_AddItem)
         self.pushButton_AddItem.setGeometry(QtCore.QRect(360, 80, 141, 31))
         palette = QtGui.QPalette()
@@ -823,6 +819,8 @@ class Ui_mainWindow(object):
 "padding-right:10px;")
         self.comboBox_Boxes.setEditable(True)
         self.comboBox_Boxes.setObjectName("comboBox_Boxes")
+        for name in boxNames:
+            self.comboBox_Boxes.addItem("")
         self.widget_BoxTotals = QtWidgets.QWidget(parent=self.widget_Background)
         self.widget_BoxTotals.setGeometry(QtCore.QRect(610, 30, 561, 701))
         self.widget_BoxTotals.setStyleSheet("background-color:rgb(0, 122, 255);\n"
@@ -897,7 +895,7 @@ class Ui_mainWindow(object):
 "font: 700 17pt \"Helvetica Neue\";")
         self.label_DCost.setObjectName("label_DCost")
         self.widget_ItemList = QtWidgets.QWidget(parent=self.widget_BoxTotals)
-        self.widget_ItemList.setGeometry(QtCore.QRect(-1, 50, 561, 431))
+        self.widget_ItemList.setGeometry(QtCore.QRect(0, 50, 561, 431))
         self.widget_ItemList.setStyleSheet("border-radius:0px;\n"
 "background-color:rgba(255, 255, 255, 0);")
         self.widget_ItemList.setObjectName("widget_ItemList")
@@ -908,7 +906,7 @@ class Ui_mainWindow(object):
         self.label_PeeqPro.setObjectName("label_PeeqPro")
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=mainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1200, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1200, 22))
         self.menubar.setObjectName("menubar")
         mainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=mainWindow)
@@ -919,18 +917,14 @@ class Ui_mainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
 
     def retranslateUi(self, mainWindow):
+        from controller import displayNames, boxNames
         _translate = QtCore.QCoreApplication.translate
         mainWindow.setWindowTitle(_translate("mainWindow", "Box Pricing Calculator"))
         self.label_BoxCalculator.setText(_translate("mainWindow", "box calculator"))
+        for name in range(len(displayNames)):
+            self.comboBox_Items.setItemText(name, _translate("mainWindow", displayNames[name]))
         self.comboBox_Items.setCurrentText(_translate("mainWindow", "Select or Type Item"))
         self.comboBox_Items.setPlaceholderText(_translate("mainWindow", "Select Item"))
-        self.comboBox_Items.setItemText(0, _translate("mainWindow", "Cleanser 50mL"))
-        self.comboBox_Items.setItemText(1, _translate("mainWindow", "Cleanser 150mL"))
-        self.comboBox_Items.setItemText(2, _translate("mainWindow", "Sensitive Skin Cleanser 50mL"))
-        self.comboBox_Items.setItemText(3, _translate("mainWindow", "Sensitive Skin Cleanser 150mL"))
-        self.comboBox_Items.setItemText(4, _translate("mainWindow", "Bishop Sponge"))
-        self.comboBox_Items.setItemText(5, _translate("mainWindow", "Circle Sponge"))
-        self.comboBox_Items.setItemText(6, _translate("mainWindow", "Refresh Optive Advanced Drops"))
         self.pushButton_AddItem.setText(_translate("mainWindow", "Add Item"))
         self.label_AddItem.setText(_translate("mainWindow", "Add Item to Box"))
         self.label_AddItemDescription.setText(_translate("mainWindow", "<html><head/><body><p>Select an item to be added to the box. If the item is not in Peeq\'s catalogue, or the pricing is different than expected create a custom item instead.</p></body></html>"))
@@ -952,6 +946,8 @@ class Ui_mainWindow(object):
         self.checkBox_MiscCosts.setText(_translate("mainWindow", "Add misc. costs to total prices"))
         self.pushButton_AddContents.setText(_translate("mainWindow", "Add Box Contents"))
         self.label_AddBox.setText(_translate("mainWindow", "Add Already Existing Box Items"))
+        for name in range(len(boxNames)):
+            self.comboBox_Boxes.setItemText(name, _translate("mainWindow", boxNames[name]))
         self.comboBox_Boxes.setCurrentText(_translate("mainWindow", "Select or Type Item"))
         self.comboBox_Boxes.setPlaceholderText(_translate("mainWindow", "Select Item"))
         self.label_Item.setText(_translate("mainWindow", "Item"))

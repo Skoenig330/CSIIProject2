@@ -2,9 +2,10 @@ from controller import *
 
 
 def main():
+    readItems()
+    readBoxes()
     app = QApplication([])
     window = Controller()
-    window.setFixedWidth
     window.show()
     app.exec()
 
