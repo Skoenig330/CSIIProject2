@@ -2423,6 +2423,14 @@ color:white;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_AddBox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>332</width>
+         <height>24</height>
+        </rect>
+       </property>
        <property name="styleSheet">
         <string notr="true">color:white;
 font: 700 20pt &quot;Helvetica Neue&quot;;</string>
@@ -2847,7 +2855,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1">
+      <widget class="QPushButton" name="pushButton_ItemList1_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4188,7 +4196,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList10">
+      <widget class="QPushButton" name="pushButton_ItemList10_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4207,7 +4215,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_20">
+      <widget class="QPushButton" name="pushButton_ItemList10_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4226,7 +4234,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_21">
+      <widget class="QPushButton" name="pushButton_ItemList10_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4337,7 +4345,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList11">
+      <widget class="QPushButton" name="pushButton_ItemList11_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4356,7 +4364,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_22">
+      <widget class="QPushButton" name="pushButton_ItemList11_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4375,7 +4383,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_23">
+      <widget class="QPushButton" name="pushButton_ItemList11_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4486,7 +4494,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList12">
+      <widget class="QPushButton" name="pushButton_ItemList12_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4505,7 +4513,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_24">
+      <widget class="QPushButton" name="pushButton_ItemList12_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4524,7 +4532,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_25">
+      <widget class="QPushButton" name="pushButton_ItemList12_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4635,7 +4643,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList13">
+      <widget class="QPushButton" name="pushButton_ItemList13_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4654,7 +4662,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_26">
+      <widget class="QPushButton" name="pushButton_ItemList13_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4673,7 +4681,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_27">
+      <widget class="QPushButton" name="pushButton_ItemList13_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4784,7 +4792,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList14">
+      <widget class="QPushButton" name="pushButton_ItemList14_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4803,7 +4811,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_28">
+      <widget class="QPushButton" name="pushButton_ItemList14_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4822,7 +4830,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_29">
+      <widget class="QPushButton" name="pushButton_ItemList14_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4933,7 +4941,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList15">
+      <widget class="QPushButton" name="pushButton_ItemList15_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4952,7 +4960,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_30">
+      <widget class="QPushButton" name="pushButton_ItemList15_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -4971,7 +4979,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_31">
+      <widget class="QPushButton" name="pushButton_ItemList15_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5082,7 +5090,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList16">
+      <widget class="QPushButton" name="pushButton_ItemList16_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5101,7 +5109,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_32">
+      <widget class="QPushButton" name="pushButton_ItemList16_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5120,7 +5128,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_33">
+      <widget class="QPushButton" name="pushButton_ItemList16_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5231,7 +5239,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList17">
+      <widget class="QPushButton" name="pushButton_ItemList17_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5250,7 +5258,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_34">
+      <widget class="QPushButton" name="pushButton_ItemList17_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5269,7 +5277,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_35">
+      <widget class="QPushButton" name="pushButton_ItemList17_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5380,7 +5388,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList18">
+      <widget class="QPushButton" name="pushButton_ItemList18_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5399,7 +5407,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_36">
+      <widget class="QPushButton" name="pushButton_ItemList18_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5418,7 +5426,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_37">
+      <widget class="QPushButton" name="pushButton_ItemList18_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5529,7 +5537,7 @@ color:white;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList19">
+      <widget class="QPushButton" name="pushButton_ItemList19_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5548,7 +5556,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_38">
+      <widget class="QPushButton" name="pushButton_ItemList19_2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5567,7 +5575,7 @@ color:white;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ItemList1_39">
+      <widget class="QPushButton" name="pushButton_ItemList19_3">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -5911,7 +5919,7 @@ color:rgb(0, 122, 255)</string>
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

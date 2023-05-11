@@ -2,12 +2,14 @@ from controller import *
 
 
 def main():
-    readItems()
-    readBoxes()
+    readData()
     app = QApplication([])
     window = Controller()
     window.show()
     app.exec()
+
+
+
 
 
 if __name__ == '__main__':

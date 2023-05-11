@@ -1,47 +1,40 @@
 from PyQt6.QtWidgets import *
 import csv
-
-class Item():
-    def __init__(self, disName, refName, unitCost, doctorCost, patientCost, itemDuration):
-        self.disName = disName
-        self.refName = refName
-        self.unitCost = unitCost
-        self.doctorCost = doctorCost
-        self.patientCost = patientCost
-        try:
-            self.itemDuration = int(itemDuration)
-        except:
-            self.itemDuration = None
-
-    def __str__(self):
-        return f'display name: {self.name}, reference name: {self.refName}, unit cost: {self.unitCost}, doctor cost: {self.doctorCost}, patient cost: {self.patientCost}'
-
-displayNames = []
-boxNames = []
-
-def readItems():
-    try:
-        file = open('items.csv', 'r')
-    except:
-        sys.exit('Error with Items File. Confirm file format and path.')
-    reader = csv.DictReader(file)
-    for line in reader:
-        displayNames.append(line["Item Name"])
-    file.close()
-
-def readBoxes():
-    try:
-        file = open('boxes.csv', 'r')
-    except:
-        sys.exit('Error with Boxes file. Confirm file format and path.')
-    reader = csv.DictReader(file)
-    for line in reader:
-        boxNames.append(line["Name"])
-    print(boxNames)
-    file.close()
-
 from view import *
+import sys
+
+labelNames = [[f'self.label_ItemList{j + 1}_{i + 1}' for i in range(0, 5)] for j in range(0, 21)]
+pushButtonNames = [[f'self.pushButton_ItemList{j + 1}_{i + 1}' for i in range(0, 3)] for j in range(0, 21)]
+print(labelNames)
+print(pushButtonNames)
+
+def readData():
+    try:
+        global items
+        items = list(csv.reader(open('items.csv', 'r')))
+        global displayNames
+        displayNames = []
+        for row in items:
+            displayNames.append(row[0])
+        displayNames.pop(0)
+    except:
+        sys.exit('Error with Items data. Confirm file format and path.')
+
+    try:
+        global boxes
+        boxes = list(csv.reader(open('boxes.csv', 'r')))
+        global boxNames
+        boxNames = []
+        for row in boxes:
+            boxNames.append(row[0])
+        boxNames.pop(0)
+    except:
+        sys.exit('Error with Boxes data. Confirm file format and path.')
+    print(boxes)
+    print(boxNames)
+
 class Controller(QMainWindow, Ui_mainWindow):
+    uniqueItems = {}
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
@@ -52,18 +45,31 @@ class Controller(QMainWindow, Ui_mainWindow):
         self.pushButton_EditItems.clicked.connect(lambda: self.editItems())
         self.checkBox_MiscCosts.toggled.connect(lambda: self.addMisc())
         self.checkBox_VisionSource.toggled.connect(lambda: self.vsDiscount())
+        self.pushButton_ItemList1_1.clicked.connect(lambda: self.clearItem())
+        self.pushButton_ItemList1_2.clicked.connect(lambda: self.decreaseItem())
+        self.pushButton_ItemList1_3.clicked.connect(lambda: self.increaseItem())
 
     def addItem(self):
         try:
             item = self.comboBox_Items.currentText()
             quantity = int(self.lineEdit_Quantity.text())
-            if item not in displayNames or quantity < 1:
+            index = displayNames.index(item)
+            if quantity < 1:
                 raise Exception
+
+            if item in self.uniqueItems:
+                position = list(self.uniqueItems.keys()).index(item)
+                self.uniqueItems[item] += quantity
+                exec(labelNames[position][1] + '.setText(str(self.uniqueItems[item]))')
+            else:
+                position = len(list(self.uniqueItems.keys()))
+                self.uniqueItems[item] = quantity
+                exec(labelNames[position][0] + '.setText(item)')
+                exec(labelNames[position][1] + '.setText(str(quantity))')
 
             self.label_ItemException.setText('')
             self.comboBox_Items.setCurrentText('Select or Type Item')
             self.lineEdit_Quantity.setText('1')
-
         except:
             self.comboBox_Items.setCurrentText('Select or Type Item')
             self.lineEdit_Quantity.setText('1')
@@ -72,10 +78,13 @@ class Controller(QMainWindow, Ui_mainWindow):
     def addBox(self):
         try:
             box = self.comboBox_Boxes.currentText()
-            if box not in boxNames:
-                raise Exception
+            # ran into bug when tried to check if box in boxNames like in addItem function above. The .index() method fulfills the same purpose, and will throw an error if the box is not in boxNames.
+            index = boxNames.index(box)
             self.label_BoxException.setText('')
-            print(item)
+            contents = boxes[index * 2][1].split()
+            for i in range(len(contents) / 2):
+                pass
+
         except:
             self.label_BoxException.setText('Invalid box type (see dropdown list)')
 
@@ -86,10 +95,42 @@ class Controller(QMainWindow, Ui_mainWindow):
         pass
 
     def editItems(self):
-        pass
+        position = len(list(self.uniqueItems.keys()))
+        currentState = self.pushButton_EditItems.text()
+        if currentState == 'Edit Item Quantity':
+            for i in range(position):
+                exec(pushButtonNames[i][0] + '.setEnabled(True)')
+                exec(pushButtonNames[i][0] + ".setText('X')")
+                exec(pushButtonNames[i][0] + '.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))')
+            for i in range(position):
+                exec(pushButtonNames[i][1] + '.setEnabled(True)')
+                exec(pushButtonNames[i][1] + ".setText('-')")
+                exec(pushButtonNames[i][1] + '.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))')
+            for i in range(position):
+                exec(pushButtonNames[i][2] + '.setEnabled(True)')
+                exec(pushButtonNames[i][2] + ".setText('+')")
+                exec(pushButtonNames[i][2] + '.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))')
+            self.pushButton_EditItems.setText('Done')
+        else:
+            self.pushButton_ItemList1_1.setEnabled(False)
+            self.pushButton_ItemList1_1.setText('')
+            self.pushButton_ItemList1_1.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
+            self.pushButton_EditItems.setText('Edit Item Quantity')
 
     def addMisc(self):
         pass
 
     def vsDiscount(self):
+        pass
+
+    def clearItem(self):
+        pass
+
+    def decreaseItem(self):
+        pass
+
+    def increaseItem(self):
+        pass
+
+    def calcTotals(self):
         pass
