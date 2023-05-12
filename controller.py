@@ -6,10 +6,12 @@ from functools import partial
 
 labelNames = [[f'self.label_ItemList{j + 1}_{i + 1}' for i in range(0, 5)] for j in range(0, 21)]
 pushButtonNames = [[f'self.pushButton_ItemList{j + 1}_{i + 1}' for i in range(0, 3)] for j in range(0, 21)]
-print(labelNames)
-print(pushButtonNames)
 
-def readData():
+def readData() -> None:
+    '''
+    Method to read data from the items.csv and boxes.csv files.
+    :return:
+    '''
     try:
         global items
         items = list(csv.reader(open('items.csv', 'r')))
@@ -33,14 +35,18 @@ def readData():
         boxNames.pop(0)
     except:
         sys.exit('Error with Boxes data. Confirm file format and path.')
-    print(items)
-    print(displayNames)
-    print(boxes)
-    print(boxNames)
 
 class Controller(QMainWindow, Ui_mainWindow):
+    '''
+    A class representing details for a window object.
+    '''
     uniqueItems = {}
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
+        '''
+        constructor object to create window.
+        :param args:
+        :param kwargs:
+        '''
         super().__init__(*args, **kwargs)
         self.setupUi(self)
         self.pushButton_AddItem.clicked.connect(lambda: self.addItem())
@@ -61,7 +67,11 @@ class Controller(QMainWindow, Ui_mainWindow):
             exec('self.pushButton_ItemList' + row + '_3.clicked.connect(partial(self.increaseItem, row))')
         self.calcTotals()
 
-    def addItem(self):
+    def addItem(self) -> None:
+        '''
+        Method to add an item to the item list on the right side of window.
+        :return:
+        '''
         editItemsState = self.pushButton_EditItems.text()
         if editItemsState == 'Done':
             self.editItems()
@@ -69,7 +79,7 @@ class Controller(QMainWindow, Ui_mainWindow):
         try:
             item = self.comboBox_Items.currentText()
             quantity = int(self.lineEdit_Quantity.text())
-            index = displayNames.index(item)
+            index = displayNames.index(item) # Checks that item is in displayNames, throws an error if not.
             if quantity < 1:
                 raise Exception
 
@@ -92,7 +102,15 @@ class Controller(QMainWindow, Ui_mainWindow):
             self.label_ItemException.setText('Invalid item type (see dropdown list) or quantity (must be a positive integer)')
         self.calcTotals()
 
-    def addBox(self):
+    def addBox(self) -> None:
+        '''
+        Method to add items from a box (group of items) to the item list on the right.
+        :return:
+        '''
+        editItemsState = self.pushButton_EditItems.text()
+        if editItemsState == 'Done':
+            self.editItems()
+
         try:
             box = self.comboBox_Boxes.currentText()
             index = boxNames.index(box)
@@ -116,6 +134,7 @@ class Controller(QMainWindow, Ui_mainWindow):
                     self.uniqueItems[item] = quantity
                     exec(labelNames[position][0] + '.setText(item)')
                     exec(labelNames[position][1] + '.setText(str(quantity))')
+                self.calcTotals()
 
             self.label_BoxException.setText('')
             self.comboBox_Boxes.setCurrentText('Select or Type Item')
@@ -124,7 +143,15 @@ class Controller(QMainWindow, Ui_mainWindow):
             self.comboBox_Boxes.setCurrentText('Select or Type Item')
             self.label_BoxException.setText('Invalid box type (see dropdown list)')
 
-    def addCustom(self):
+
+    def addCustom(self) -> None:
+        '''
+        Method to create and add a custom item to the item list on the right.
+        :return:
+        '''
+        editItemsState = self.pushButton_EditItems.text()
+        if editItemsState == 'Done':
+            self.editItems()
         try:
             item = self.lineEdit_Name.text()
             quantity = int(self.lineEdit_QuantityCustom.text())
@@ -135,41 +162,62 @@ class Controller(QMainWindow, Ui_mainWindow):
             if item == "":
                 raise ValueError
 
+            if type(dCost) == '':
+                dCost = float(uCost * 1.3)
+            else:
+                dCost = int(dCost)
+
+            if type(minimum) == '':
+                minimum = float(uCost * 1.5)
+            else:
+                minimum = int(minimum)
+
             if item in self.uniqueItems:
-                position = list(self.uniqueItems.keys()).index(item)
-                oldQuantity = int(self.uniqueItems[item])
-                self.uniqueItems[item] = str(oldQuantity + quantity)
-                exec(labelNames[position][1] + '.setText(str(self.uniqueItems[item]))')
+                raise Exception
             else:
                 position = len(list(self.uniqueItems.keys()))
                 self.uniqueItems[item] = quantity
                 exec(labelNames[position][0] + '.setText(item)')
                 exec(labelNames[position][1] + '.setText(str(quantity))')
+                displayNames.append(item)
 
-            if type(dCost) is str:
-                dCost = float(uCost * 1.3)
-            if type(minimum) is str:
-                minimum = float(uCost * 1.5)
             values = [item, f'{uCost:.2f}', f'{dCost:.2f}', f'{minimum:.2f}']
             items.extend([values])
-            print(items)
-            print(items[-1])
-
+            self.calcTotals()
         except ValueError:
             self.label_CustomException.setText('Quantity and Unit Cost are required. Unit Cost, Doctor Cost, and Minimum must all be positive integer')
+        except:
+            self.label_CustomException.setText('Create unique name, cannot already be in use.')
+        self.lineEdit_Name.setText('')
+        self.lineEdit_UnitPrice.setText('')
+        self.lineEdit_QuantityCustom.setText('1')
+        self.lineEdit_DoctorCost.setText('')
+        self.lineEdit_Minimum.setText('')
 
-    def clear(self):
+    def clear(self) -> None:
+        '''
+        Method for clearing all items in the item list on the right.
+        :return:
+        '''
         position = len(list(self.uniqueItems.keys()))
         for i in range(position):
             exec(labelNames[i][0] + '.setText("")')
             exec(labelNames[i][1] + '.setText("")')
+            exec(labelNames[i][2] + '.setText("")')
+            exec(labelNames[i][3] + '.setText("")')
+            exec(labelNames[i][4] + '.setText("")')
 
         editItemsState = self.pushButton_EditItems.text()
         if editItemsState == 'Done':
             self.editItems()
         self.uniqueItems = {}
+        self.calcTotals()
 
-    def editItems(self):
+    def editItems(self) -> None:
+        '''
+        Method to enable and display the buttons needed to edit item quantities.
+        :return:
+        '''
         position = len(list(self.uniqueItems.keys()))
         currentState = self.pushButton_EditItems.text()
         if currentState == 'Edit Item Quantity':
@@ -200,8 +248,14 @@ class Controller(QMainWindow, Ui_mainWindow):
                 exec(pushButtonNames[i][2] + '.setEnabled(False)')
                 exec(pushButtonNames[i][2] + '.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))')
             self.pushButton_EditItems.setText('Edit Item Quantity')
+            self.calcTotals()
 
-    def clearItem(self, row):
+    def clearItem(self, row: str) -> None:
+        '''
+        Method for clearing an individual item.
+        :param row: Used to determine what row of the item list is being acted upon.
+        :return:
+        '''
         itemListLength = len(self.uniqueItems.keys())
         item = eval('self.label_ItemList' + str(row) + '_1.text()')
         del self.uniqueItems[item]
@@ -215,8 +269,14 @@ class Controller(QMainWindow, Ui_mainWindow):
 
         for button in range(3):
             exec('self.pushButton_ItemList' + str(itemListLength) + '_' + str(button + 1) + '.setText("")')
+        self.calcTotals()
 
-    def decreaseItem(self, row):
+    def decreaseItem(self, row: str) -> None:
+        '''
+        Method for decreasing the total quantity of an individual item.
+        :param row: Used to determine what row of the item list is being acted upon.
+        :return:
+        '''
         item = eval('self.label_ItemList' + str(row) + '_1.text()')
         quantity = eval('int((self.label_ItemList' + str(row) + '_2.text()))')
         if quantity == 1:
@@ -225,32 +285,47 @@ class Controller(QMainWindow, Ui_mainWindow):
             quantity -= 1
             self.uniqueItems[item] = quantity
             exec('self.label_ItemList' + str(row) + '_2.setText(str(quantity))')
+        self.calcTotals()
 
-    def increaseItem(self, row):
+    def increaseItem(self, row: str) -> None:
+        '''
+        Method for increasing the total quantity of an individual item.
+        :param row: Used to determine what row of the item list is being acted upon.
+        :return:
+        '''
         item = eval('self.label_ItemList' + str(row) + '_1.text()')
         quantity = eval('int((self.label_ItemList' + str(row) + '_2.text()))')
         quantity += 1
         self.uniqueItems[item] = quantity
         exec('self.label_ItemList' + str(row) + '_2.setText(str(quantity))')
+        self.calcTotals()
 
-    def calcTotals(self):
+    def calcTotals(self) -> None:
+        '''
+        Method for calculating and displaying the costs/prices for every item and the totals.
+        :return:
+        '''
         if len(self.uniqueItems.keys()) == 0:
             self.label_PeeqCostOutput.setText('$0.00')
             self.label_DoctorCostOutput.setText('$0.00')
             self.label_MinimumOutput.setText('$0.00')
         else:
             uCostTotal = 0.00
-            dCostTotal = 0.00
+            dCostTotal = 5.00
             minimumTotal = 0.00
+            if self.checkBox_MiscCosts.isChecked():
+                uCostTotal += 3.00
+                dCostTotal += 3.00
+                minimumTotal += 3.00
+            if self.checkBox_VisionSource.isChecked():
+                dCostTotal -= 5.00
             itemsTotal = list(self.uniqueItems.keys())
             quantitiesTotal = list(self.uniqueItems.values())
-            print(itemsTotal)
-            print(quantitiesTotal)
             for i in range(len(itemsTotal)):
                 index = displayNames.index(itemsTotal[i])
-                uCost = int(quantitiesTotal[i]) * float(items[index][1])
-                dCost = int(quantitiesTotal[i]) * float(items[index][2])
-                minimum = int(quantitiesTotal[i]) * float(items[index][3])
+                uCost = float(items[index][1])
+                dCost = float(items[index][2])
+                minimum = float(items[index][3])
                 uCostTotal += uCost
                 dCostTotal += dCost
                 minimumTotal += minimum

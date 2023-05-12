@@ -11,7 +11,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
-        from controller import displayNames, boxNames
+        from controller import displayNames, boxNames # Lists used to populate fields for self.comboBox_items & self.comboBox_boxes
         mainWindow.setObjectName("mainWindow")
         mainWindow.setEnabled(True)
         mainWindow.resize(1200, 800)
