@@ -58,13 +58,13 @@ class Controller(QMainWindow, Ui_mainWindow):
         self.checkBox_VisionSource.toggled.connect(lambda: self.calcTotals())
         for button in pushButtonNames:
             row = str(pushButtonNames.index(button) + 1)
-            exec('self.pushButton_ItemList' + row + '_1.clicked.connect(partial(self.clearItem, row))')
+            eval('self.pushButton_ItemList' + row + '_1.clicked.connect(partial(self.clearItem, row))')
         for button in pushButtonNames:
             row = str(pushButtonNames.index(button) + 1)
-            exec('self.pushButton_ItemList' + row + '_2.clicked.connect(partial(self.decreaseItem, row))')
+            eval('self.pushButton_ItemList' + row + '_2.clicked.connect(partial(self.decreaseItem, row))')
         for button in pushButtonNames:
             row = str(pushButtonNames.index(button) + 1)
-            exec('self.pushButton_ItemList' + row + '_3.clicked.connect(partial(self.increaseItem, row))')
+            eval('self.pushButton_ItemList' + row + '_3.clicked.connect(partial(self.increaseItem, row))')
         self.calcTotals()
 
     def addItem(self) -> None:
@@ -83,14 +83,14 @@ class Controller(QMainWindow, Ui_mainWindow):
             if quantity < 1:
                 raise Exception
 
-            if item in self.uniqueItems:
-                position = list(self.uniqueItems.keys()).index(item)
-                newQuantity = int(self.uniqueItems[item]) + quantity
-                self.uniqueItems[item] = str(newQuantity)
-                exec(labelNames[position][1] + '.setText(str(self.uniqueItems[item]))')
+            if item in type(self).uniqueItems:
+                position = list(type(self).uniqueItems.keys()).index(item)
+                newQuantity = int(type(self).uniqueItems[item]) + quantity
+                type(self).uniqueItems[item] = str(newQuantity)
+                exec(labelNames[position][1] + '.setText(str(type(self).uniqueItems[item]))')
             else:
-                position = len(list(self.uniqueItems.keys()))
-                self.uniqueItems[item] = quantity
+                position = len(list(type(self).uniqueItems.keys()))
+                type(self).uniqueItems[item] = quantity
                 exec(labelNames[position][0] + '.setText(item)')
                 exec(labelNames[position][1] + '.setText(str(quantity))')
             self.label_ItemException.setText('')
@@ -124,18 +124,17 @@ class Controller(QMainWindow, Ui_mainWindow):
                 quantity = int(contents[i])
                 item = contents[i + 1]
 
-                if item in self.uniqueItems:
-                    position = list(self.uniqueItems.keys()).index(item)
-                    oldQuantity = int(self.uniqueItems[item])
-                    self.uniqueItems[item] = str(oldQuantity + quantity)
-                    exec(labelNames[position][1] + '.setText(str(self.uniqueItems[item]))')
+                if item in type(self).uniqueItems:
+                    position = list(type(self).uniqueItems.keys()).index(item)
+                    oldQuantity = int(type(self).uniqueItems[item])
+                    type(self).uniqueItems[item] = str(oldQuantity + quantity)
+                    exec(labelNames[position][1] + '.setText(str(type(self).uniqueItems[item]))')
                 else:
-                    position = len(list(self.uniqueItems.keys()))
-                    self.uniqueItems[item] = quantity
+                    position = len(list(type(self).uniqueItems.keys()))
+                    type(self).uniqueItems[item] = quantity
                     exec(labelNames[position][0] + '.setText(item)')
                     exec(labelNames[position][1] + '.setText(str(quantity))')
-                self.calcTotals()
-
+            self.calcTotals()
             self.label_BoxException.setText('')
             self.comboBox_Boxes.setCurrentText('Select or Type Item')
         except:
@@ -152,42 +151,42 @@ class Controller(QMainWindow, Ui_mainWindow):
         editItemsState = self.pushButton_EditItems.text()
         if editItemsState == 'Done':
             self.editItems()
-        # try:
-        item = self.lineEdit_Name.text()
-        quantity = int(self.lineEdit_QuantityCustom.text())
-        uCost = int(self.lineEdit_UnitPrice.text())
-        dCost = self.lineEdit_DoctorCost.text()
-        minimum = self.lineEdit_Minimum.text()
+        try:
+            item = self.lineEdit_Name.text()
+            quantity = int(self.lineEdit_QuantityCustom.text())
+            uCost = int(self.lineEdit_UnitPrice.text())
+            dCost = self.lineEdit_DoctorCost.text()
+            minimum = self.lineEdit_Minimum.text()
 
-        if item == "":
-            raise ValueError
+            if item == "":
+                raise ValueError
 
-        if type(dCost) != '':
-            dCost = float(uCost * 1.3)
-        else:
-            dCost = int(dCost)
+            if type(dCost) != '':
+                dCost = int(dCost)
+            else:
+                dCost = float(uCost * 1.3)
 
-        if type(minimum) != '':
-            minimum = float(uCost * 1.5)
-        else:
-            minimum = int(minimum)
+            if type(minimum) != '':
+                minimum = int(minimum)
+            else:
+                minimum = float(uCost * 1.5)
 
-        if item in self.uniqueItems:
-            raise Exception
-        else:
-            position = len(list(self.uniqueItems.keys()))
-            self.uniqueItems[item] = quantity
-            exec(labelNames[position][0] + '.setText(item)')
-            exec(labelNames[position][1] + '.setText(str(quantity))')
-            displayNames.append(item)
+            if item in type(self).uniqueItems:
+                raise Exception
+            else:
+                position = len(list(type(self).uniqueItems.keys()))
+                type(self).uniqueItems[item] = quantity
+                exec(labelNames[position][0] + '.setText(item)')
+                exec(labelNames[position][1] + '.setText(str(quantity))')
+                displayNames.append(item)
 
-        values = [item, f'{uCost:.2f}', f'{dCost:.2f}', f'{minimum:.2f}']
-        items.extend([values])
-        self.calcTotals()
-        # except ValueError:
-        #     self.label_CustomException.setText('Quantity and Unit Cost are required. Unit Cost, Doctor Cost, and Minimum must all be positive integer')
-        # except:
-        #     self.label_CustomException.setText('Create unique name, cannot already be in use.')
+            values = [item, f'{uCost:.2f}', f'{dCost:.2f}', f'{minimum:.2f}']
+            items.extend([values])
+            self.calcTotals()
+        except ValueError:
+            self.label_CustomException.setText('Quantity and Unit Cost are required. Unit Cost, Doctor Cost, and Minimum must all be positive integer')
+        except:
+            self.label_CustomException.setText('Create unique name, cannot already be in use.')
         self.lineEdit_Name.setText('')
         self.lineEdit_UnitPrice.setText('')
         self.lineEdit_QuantityCustom.setText('1')
@@ -199,7 +198,7 @@ class Controller(QMainWindow, Ui_mainWindow):
         Method for clearing all items in the item list on the right.
         :return:
         '''
-        position = len(list(self.uniqueItems.keys()))
+        position = len(list(type(self).uniqueItems.keys()))
         for i in range(position):
             exec(labelNames[i][0] + '.setText("")')
             exec(labelNames[i][1] + '.setText("")')
@@ -210,7 +209,7 @@ class Controller(QMainWindow, Ui_mainWindow):
         editItemsState = self.pushButton_EditItems.text()
         if editItemsState == 'Done':
             self.editItems()
-        self.uniqueItems = {}
+        type(self).uniqueItems = {}
         self.calcTotals()
 
     def editItems(self) -> None:
@@ -218,7 +217,7 @@ class Controller(QMainWindow, Ui_mainWindow):
         Method to enable and display the buttons needed to edit item quantities.
         :return:
         '''
-        position = len(list(self.uniqueItems.keys()))
+        position = len(list(type(self).uniqueItems.keys()))
         currentState = self.pushButton_EditItems.text()
         if currentState == 'Edit Item Quantity':
             for i in range(position):
@@ -248,7 +247,6 @@ class Controller(QMainWindow, Ui_mainWindow):
                 exec(pushButtonNames[i][2] + '.setEnabled(False)')
                 exec(pushButtonNames[i][2] + '.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))')
             self.pushButton_EditItems.setText('Edit Item Quantity')
-            self.calcTotals()
 
     def clearItem(self, row: str) -> None:
         '''
@@ -256,9 +254,9 @@ class Controller(QMainWindow, Ui_mainWindow):
         :param row: Used to determine what row of the item list is being acted upon.
         :return:
         '''
-        itemListLength = len(self.uniqueItems.keys())
+        itemListLength = len(type(self).uniqueItems.keys())
         item = eval('self.label_ItemList' + str(row) + '_1.text()')
-        del self.uniqueItems[item]
+        del type(self).uniqueItems[item]
         for i in range(int(row), itemListLength):
             for j in range(5):
                 exec('updatedText = self.label_ItemList' + str(i + 1) + '_' + str(j + 1) + '.text()')
@@ -283,7 +281,7 @@ class Controller(QMainWindow, Ui_mainWindow):
             self.clearItem(row)
         else:
             quantity -= 1
-            self.uniqueItems[item] = quantity
+            type(self).uniqueItems[item] = quantity
             exec('self.label_ItemList' + str(row) + '_2.setText(str(quantity))')
         self.calcTotals()
 
@@ -296,7 +294,7 @@ class Controller(QMainWindow, Ui_mainWindow):
         item = eval('self.label_ItemList' + str(row) + '_1.text()')
         quantity = eval('int((self.label_ItemList' + str(row) + '_2.text()))')
         quantity += 1
-        self.uniqueItems[item] = quantity
+        type(self).uniqueItems[item] = quantity
         exec('self.label_ItemList' + str(row) + '_2.setText(str(quantity))')
         self.calcTotals()
 
@@ -305,7 +303,7 @@ class Controller(QMainWindow, Ui_mainWindow):
         Method for calculating and displaying the costs/prices for every item and the totals.
         :return:
         '''
-        if len(self.uniqueItems.keys()) == 0:
+        if len(type(self).uniqueItems.keys()) == 0:
             self.label_PeeqCostOutput.setText('$0.00')
             self.label_DoctorCostOutput.setText('$0.00')
             self.label_MinimumOutput.setText('$0.00')
@@ -319,19 +317,20 @@ class Controller(QMainWindow, Ui_mainWindow):
                 minimumTotal += 3.00
             if self.checkBox_VisionSource.isChecked():
                 dCostTotal -= 5.00
-            itemsTotal = list(self.uniqueItems.keys())
-            quantitiesTotal = list(self.uniqueItems.values())
+            itemsTotal = list(type(self).uniqueItems.keys())
+            quantitiesTotal = list(type(self).uniqueItems.values())
             for i in range(len(itemsTotal)):
                 index = displayNames.index(itemsTotal[i])
-                uCost = float(items[index][1])
-                dCost = float(items[index][2])
-                minimum = float(items[index][3])
+                uCost = float(items[index][1]) * int(quantitiesTotal[i])
+                dCost = float(items[index][2]) * int(quantitiesTotal[i])
+                minimum = float(items[index][3]) * int(quantitiesTotal[i])
                 uCostTotal += uCost * int(quantitiesTotal[i])
                 dCostTotal += dCost * int(quantitiesTotal[i])
                 minimumTotal += minimum * int(quantitiesTotal[i])
-                exec('self.label_ItemList' + str(len(itemsTotal)) + '_3.setText("$" + "%.2f" % uCost)')
-                exec('self.label_ItemList' + str(len(itemsTotal)) + '_4.setText("$" + "%.2f" % dCost)')
-                exec('self.label_ItemList' + str(len(itemsTotal)) + '_5.setText("$" + "%.2f" % minimum)')
+                exec('self.label_ItemList' + str(i + 1) + '_3.setText("$" + "%.2f" % uCost)')
+                exec('self.label_ItemList' + str(i + 1) + '_4.setText("$" + "%.2f" % dCost)')
+                exec('self.label_ItemList' + str(i + 1) + '_5.setText("$" + "%.2f" % minimum)')
+
             self.label_PeeqCostOutput.setText('$%.2f' % uCostTotal)
             self.label_DoctorCostOutput.setText('$%.2f' % dCostTotal)
             self.label_MinimumOutput.setText('$%.2f' % minimumTotal)
